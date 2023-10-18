@@ -1,0 +1,2 @@
+1697539627 /home/student/smaciejewski/VDIC_2023/common/vdic_dut_2023.svp
+1697615543 /home/student/smaciejewski/VDIC_2023/lab01/tb/test.sv
