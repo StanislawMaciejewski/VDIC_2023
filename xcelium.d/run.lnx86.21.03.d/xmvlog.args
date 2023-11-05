@@ -6,10 +6,12 @@
 ./xcelium.d/run.lnx86.21.03.d
 -RUNMODE
 -sv
-lab01/tb/../../common/vdic_dut_2023.svp
--DEFINE
-DEBUG
-lab01/tb/test.sv
+lab03/tb/../../common/vdic_dut_2023.svp
+lab03/tb/DUT_bfm.sv
+lab03/tb/tpgen.sv
+lab03/tb/coverage.sv
+lab03/tb/scoreboard.sv
+lab03/tb/top.sv
 -CDSLIB
 ./xcelium.d/run.lnx86.21.03.d/cdsrun.lib
 -HDLVAR
