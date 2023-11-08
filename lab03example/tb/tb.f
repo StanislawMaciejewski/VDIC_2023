@@ -3,5 +3,5 @@ tinyalu_pkg.sv
 tinyalu_bfm.sv
 tpgen.sv
 coverage.sv
-scoreboard.sv
++define+DEBUG scoreboard.sv
 top.sv

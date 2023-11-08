@@ -1,4 +1,4 @@
-module tpgen(DUT_bfm bfm);
+module tpgen(mult_bfm bfm);
 
 function bit signed [15:0] get_data();
 	bit [2:0] zero_ones;
@@ -16,14 +16,17 @@ initial begin
 	bit signed [15:0] iarg_b;
 	bit iarg_a_parity;
 	bit iarg_b_parity;
+	bit signed[31:0] iresult; 
+	bit iresult_parity;
+	bit iarg_parity_error;	
 	
 	bfm.reset_alu();
-	repeat (1000) begin : random_loop
+	repeat (10000) begin : random_loop
 		iarg_a = get_data();
 		iarg_b = get_data();
 		iarg_a_parity = 1'($random);
 		iarg_b_parity = 1'($random);
-		bfm.send_op(iarg_a, iarg_b, iarg_a_parity, iarg_b_parity);
+		bfm.send_data(iarg_a, iarg_b, iarg_a_parity, iarg_b_parity, iresult, iresult_parity, iarg_parity_error);
 	end : random_loop
 	$finish;
 end // initial begin

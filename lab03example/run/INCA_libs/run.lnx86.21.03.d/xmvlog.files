@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/student/smaciejewski/VDIC_2023/common/tinyalu/single_cycle.sv
+/home/student/smaciejewski/VDIC_2023/common/tinyalu/three_cycle.sv
+/home/student/smaciejewski/VDIC_2023/common/tinyalu/tinyalu.sv
+/home/student/smaciejewski/VDIC_2023/lab03example/tb/tinyalu_pkg.sv
+/home/student/smaciejewski/VDIC_2023/lab03example/tb/tinyalu_bfm.sv
+/home/student/smaciejewski/VDIC_2023/lab03example/tb/tpgen.sv
+/home/student/smaciejewski/VDIC_2023/lab03example/tb/coverage.sv
+/home/student/smaciejewski/VDIC_2023/lab03example/tb/scoreboard.sv
+/home/student/smaciejewski/VDIC_2023/lab03example/tb/top.sv

@@ -1,0 +1,346 @@
+TOOL:	xrun	21.03-s009: Started on Nov 08, 2023 at 17:54:16 CET
+xrun
+	-F ../tb/tb.f
+		-F ../tb/../../common/tinyalu/tinyalu.f
+			single_cycle.sv
+			three_cycle.sv
+			tinyalu.sv
+		tinyalu_pkg.sv
+		tinyalu_bfm.sv
+		tpgen.sv
+		coverage.sv
+		+define+DEBUG
+		scoreboard.sv
+		top.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab03example
+	-l xrun_test_lab03example.log
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools/methodology/UVM/CDNS-1.1d
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tinyalu_pkg
+		tinyalu
+		top
+
+	Extracting FSMs for coverage:
+		worklib.single_cycle
+		worklib.three_cycle
+		worklib.tinyalu
+		worklib.tpgen
+		worklib.coverage
+		worklib.scoreboard
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables inside structures. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum -sv_struct_with_enum' command in the coverage configuration file.
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                Instances  Unique
+		Modules:                7       7
+		Interfaces:             1       1
+		Verilog packages:       1       1
+		Registers:             43      43
+		Scalar wires:           6       -
+		Vectored wires:         8       -
+		Always blocks:          5       5
+		Initial blocks:         4       4
+		Final blocks:           1       1
+		Cont. assignments:      4       5
+		Assertions:             1       1
+		Covergroup Instances:   0       2
+	Writing initial simulation snapshot: worklib.tinyalu:sv
+Loading snapshot worklib.tinyalu:sv .................... Done
+xcelium> source /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+0 DEBUG: reset_alu
+100 DEBUG: reset_alu
+280 DEBUG: reset_alu
+360 DEBUG: reset_alu
+380 DEBUG: reset_alu
+440 DEBUG: reset_alu
+520 DEBUG: reset_alu
+580 DEBUG: reset_alu
+620 DEBUG: reset_alu
+680 DEBUG: reset_alu
+760 DEBUG: reset_alu
+780 DEBUG: reset_alu
+840 DEBUG: reset_alu
+900 DEBUG: reset_alu
+920 DEBUG: reset_alu
+940 DEBUG: reset_alu
+1040 DEBUG: reset_alu
+1100 DEBUG: reset_alu
+1140 DEBUG: reset_alu
+1200 DEBUG: reset_alu
+1380 DEBUG: reset_alu
+1460 DEBUG: reset_alu
+1540 DEBUG: reset_alu
+1620 DEBUG: reset_alu
+1680 DEBUG: reset_alu
+1760 DEBUG: reset_alu
+1840 DEBUG: reset_alu
+1920 DEBUG: reset_alu
+1960 DEBUG: reset_alu
+2020 DEBUG: reset_alu
+2140 DEBUG: reset_alu
+2160 DEBUG: reset_alu
+2180 DEBUG: reset_alu
+2200 DEBUG: reset_alu
+2220 DEBUG: reset_alu
+2260 DEBUG: reset_alu
+2300 DEBUG: reset_alu
+2340 DEBUG: reset_alu
+2360 DEBUG: reset_alu
+2380 DEBUG: reset_alu
+2420 DEBUG: reset_alu
+2460 DEBUG: reset_alu
+2520 DEBUG: reset_alu
+2660 DEBUG: reset_alu
+2680 DEBUG: reset_alu
+2900 DEBUG: reset_alu
+3040 DEBUG: reset_alu
+3140 DEBUG: reset_alu
+3300 DEBUG: reset_alu
+3340 DEBUG: reset_alu
+3400 DEBUG: reset_alu
+3480 DEBUG: reset_alu
+3560 DEBUG: reset_alu
+3760 DEBUG: reset_alu
+3800 DEBUG: reset_alu
+3900 DEBUG: reset_alu
+3980 DEBUG: reset_alu
+4020 DEBUG: reset_alu
+4080 DEBUG: reset_alu
+4160 DEBUG: reset_alu
+4340 DEBUG: reset_alu
+4400 DEBUG: reset_alu
+4440 DEBUG: reset_alu
+4760 DEBUG: reset_alu
+4820 DEBUG: reset_alu
+4840 DEBUG: reset_alu
+4860 DEBUG: reset_alu
+5060 DEBUG: reset_alu
+5120 DEBUG: reset_alu
+5180 DEBUG: reset_alu
+5260 DEBUG: reset_alu
+5580 DEBUG: reset_alu
+5680 DEBUG: reset_alu
+5800 DEBUG: reset_alu
+5940 DEBUG: reset_alu
+5980 DEBUG: reset_alu
+6040 DEBUG: reset_alu
+6100 DEBUG: reset_alu
+6220 DEBUG: reset_alu
+6240 DEBUG: reset_alu
+6320 DEBUG: reset_alu
+6500 DEBUG: reset_alu
+6520 DEBUG: reset_alu
+6620 DEBUG: reset_alu
+6760 DEBUG: reset_alu
+6880 DEBUG: reset_alu
+6900 DEBUG: reset_alu
+6960 DEBUG: reset_alu
+7020 DEBUG: reset_alu
+7120 DEBUG: reset_alu
+7140 DEBUG: reset_alu
+7260 DEBUG: reset_alu
+7380 DEBUG: reset_alu
+7480 DEBUG: reset_alu
+7500 DEBUG: reset_alu
+7560 DEBUG: reset_alu
+7580 DEBUG: reset_alu
+7680 DEBUG: reset_alu
+7700 DEBUG: reset_alu
+7720 DEBUG: reset_alu
+7820 DEBUG: reset_alu
+7860 DEBUG: reset_alu
+7980 DEBUG: reset_alu
+8000 DEBUG: reset_alu
+8020 DEBUG: reset_alu
+8040 DEBUG: reset_alu
+8100 DEBUG: reset_alu
+8140 DEBUG: reset_alu
+8180 DEBUG: reset_alu
+8220 DEBUG: reset_alu
+8240 DEBUG: reset_alu
+8380 DEBUG: reset_alu
+8440 DEBUG: reset_alu
+8480 DEBUG: reset_alu
+8580 DEBUG: reset_alu
+8600 DEBUG: reset_alu
+8640 DEBUG: reset_alu
+8680 DEBUG: reset_alu
+8760 DEBUG: reset_alu
+8920 DEBUG: reset_alu
+8940 DEBUG: reset_alu
+9100 DEBUG: reset_alu
+9160 DEBUG: reset_alu
+9180 DEBUG: reset_alu
+9280 DEBUG: reset_alu
+9300 DEBUG: reset_alu
+9440 DEBUG: reset_alu
+9500 DEBUG: reset_alu
+9560 DEBUG: reset_alu
+9740 DEBUG: reset_alu
+9840 DEBUG: reset_alu
+10040 DEBUG: reset_alu
+10060 DEBUG: reset_alu
+10100 DEBUG: reset_alu
+10140 DEBUG: reset_alu
+10180 DEBUG: reset_alu
+10200 DEBUG: reset_alu
+10260 DEBUG: reset_alu
+10320 DEBUG: reset_alu
+10520 DEBUG: reset_alu
+10580 DEBUG: reset_alu
+10600 DEBUG: reset_alu
+10660 DEBUG: reset_alu
+10720 DEBUG: reset_alu
+10740 DEBUG: reset_alu
+10760 DEBUG: reset_alu
+11000 DEBUG: reset_alu
+11020 DEBUG: reset_alu
+11040 DEBUG: reset_alu
+11140 DEBUG: reset_alu
+11320 DEBUG: reset_alu
+11360 DEBUG: reset_alu
+11400 DEBUG: reset_alu
+11440 DEBUG: reset_alu
+11460 DEBUG: reset_alu
+11520 DEBUG: reset_alu
+11600 DEBUG: reset_alu
+11880 DEBUG: reset_alu
+11980 DEBUG: reset_alu
+12000 DEBUG: reset_alu
+12080 DEBUG: reset_alu
+12160 DEBUG: reset_alu
+12240 DEBUG: reset_alu
+12360 DEBUG: reset_alu
+12420 DEBUG: reset_alu
+12600 DEBUG: reset_alu
+12620 DEBUG: reset_alu
+12760 DEBUG: reset_alu
+12780 DEBUG: reset_alu
+12800 DEBUG: reset_alu
+12860 DEBUG: reset_alu
+12880 DEBUG: reset_alu
+13040 DEBUG: reset_alu
+13260 DEBUG: reset_alu
+13340 DEBUG: reset_alu
+13580 DEBUG: reset_alu
+13620 DEBUG: reset_alu
+13700 DEBUG: reset_alu
+13740 DEBUG: reset_alu
+13760 DEBUG: reset_alu
+13780 DEBUG: reset_alu
+13800 DEBUG: reset_alu
+13880 DEBUG: reset_alu
+14000 DEBUG: reset_alu
+14020 DEBUG: reset_alu
+14100 DEBUG: reset_alu
+14140 DEBUG: reset_alu
+14160 DEBUG: reset_alu
+14180 DEBUG: reset_alu
+14260 DEBUG: reset_alu
+14440 DEBUG: reset_alu
+14460 DEBUG: reset_alu
+14560 DEBUG: reset_alu
+14660 DEBUG: reset_alu
+15060 DEBUG: reset_alu
+15080 DEBUG: reset_alu
+15120 DEBUG: reset_alu
+15220 DEBUG: reset_alu
+15520 DEBUG: reset_alu
+15560 DEBUG: reset_alu
+15660 DEBUG: reset_alu
+15700 DEBUG: reset_alu
+15720 DEBUG: reset_alu
+15840 DEBUG: reset_alu
+15920 DEBUG: reset_alu
+15940 DEBUG: reset_alu
+15960 DEBUG: reset_alu
+16040 DEBUG: reset_alu
+16060 DEBUG: reset_alu
+16120 DEBUG: reset_alu
+16200 DEBUG: reset_alu
+16260 DEBUG: reset_alu
+16680 DEBUG: reset_alu
+16760 DEBUG: reset_alu
+17140 DEBUG: reset_alu
+17280 DEBUG: reset_alu
+17500 DEBUG: reset_alu
+17560 DEBUG: reset_alu
+17600 DEBUG: reset_alu
+17620 DEBUG: reset_alu
+17680 DEBUG: reset_alu
+17700 DEBUG: reset_alu
+17800 DEBUG: reset_alu
+17840 DEBUG: reset_alu
+17880 DEBUG: reset_alu
+17980 DEBUG: reset_alu
+18000 DEBUG: reset_alu
+18100 DEBUG: reset_alu
+18160 DEBUG: reset_alu
+18180 DEBUG: reset_alu
+18300 DEBUG: reset_alu
+18400 DEBUG: reset_alu
+18460 DEBUG: reset_alu
+18500 DEBUG: reset_alu
+18520 DEBUG: reset_alu
+18600 DEBUG: reset_alu
+18720 DEBUG: reset_alu
+18740 DEBUG: reset_alu
+18760 DEBUG: reset_alu
+18920 DEBUG: reset_alu
+18980 DEBUG: reset_alu
+19120 DEBUG: reset_alu
+19160 DEBUG: reset_alu
+19240 DEBUG: reset_alu
+19340 DEBUG: reset_alu
+19520 DEBUG: reset_alu
+19540 DEBUG: reset_alu
+19680 DEBUG: reset_alu
+19740 DEBUG: reset_alu
+19780 DEBUG: reset_alu
+19800 DEBUG: reset_alu
+19840 DEBUG: reset_alu
+19900 DEBUG: reset_alu
+[1;30m[102m-----------------------------------
+----------- Test PASSED -----------
+-----------------------------------[0m
+
+Simulation complete via $finish(1) at time 20020 NS + 0
+../tb/tpgen.sv:62     $finish;
+xcelium> exit
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  tinyalu(tinyalu)
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_6dc583e7_473d5dbc.ucm
+  data               :  ./cov_work/scope/test/icc_6dc583e7_473d5dbc.ucd
+TOOL:	xrun	21.03-s009: Exiting on Nov 08, 2023 at 17:54:17 CET  (total: 00:00:01)

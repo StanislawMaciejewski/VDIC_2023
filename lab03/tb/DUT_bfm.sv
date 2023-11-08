@@ -1,4 +1,4 @@
-interface DUT_bfm;
+interface mult_bfm;
 	
 bit                  clk;
 bit                  rst_n;
@@ -14,7 +14,7 @@ wire                 result_rdy;
 wire                 arg_parity_error;	
 	
 	
-modport tlm (import reset_alu);
+modport tlm (import reset_alu, send_data);
 
 //------------------------------------------------------------------------------
 // Clock generator
@@ -41,5 +41,25 @@ task reset_alu();
     rst_n = 1'b1;
 endtask : reset_alu
 
-endinterface : DUT_bfm
+
+//------------------------------------------------------------------------------
+// send_data
+//------------------------------------------------------------------------------
+
+task send_data(input bit signed[15:0] iarg_a, input bit signed[15:0] iarg_b, input bit iarg_a_parity, input bit iarg_b_parity, output bit signed [31:0] iresult, output bit iresult_parity, output bit iarg_parity_error);
+
+    arg_a             = iarg_a;
+    arg_b      		  = iarg_b;
+	arg_a_parity      = iarg_a_parity;
+    arg_b_parity      = iarg_b_parity;
+
+    req  = 1'b1;
+
+    while(!ack) @(negedge clk);
+    req = 1'b0;
+    while(!result_rdy) @(negedge clk);
+
+endtask : send_data
+
+endinterface : mult_bfm
 

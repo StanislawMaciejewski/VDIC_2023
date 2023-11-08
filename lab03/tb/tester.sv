@@ -1,4 +1,4 @@
-module tester(DUT_bfm bfm);
+module tester(mult_bfm bfm);
 
 function bit signed [15:0] get_data();
 	bit [2:0] zero_ones;
@@ -18,12 +18,12 @@ initial begin
 	bit iarg_b_parity;
 	
 	bfm.reset_alu();
-	repeat (1000) begin : random_loop
+	repeat (10000) begin : random_loop
 		iarg_a = get_data();
 		iarg_b = get_data();
 		iarg_a_parity = 1'($random);
 		iarg_b_parity = 1'($random);
-		bfm.send_op(iarg_a, iarg_b, iarg_a_parity, iarg_b_parity);
+		bfm.send_data(iarg_a, iarg_b, iarg_a_parity, iarg_b_parity);
 	end : random_loop
 	$finish;
 end // initial begin

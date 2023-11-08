@@ -1,0 +1,84 @@
+TOOL:	xrun	21.03-s009: Started on Nov 08, 2023 at 17:54:16 CET
+xrun
+	-elaborate
+	-l xrun_elaborate.log
+	-F ../tb/tb.f
+		-F ../tb/../../common/tinyalu/tinyalu.f
+			single_cycle.sv
+			three_cycle.sv
+			tinyalu.sv
+		tinyalu_pkg.sv
+		tinyalu_bfm.sv
+		tpgen.sv
+		coverage.sv
+		+define+DEBUG
+		scoreboard.sv
+		top.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tinyalu_pkg
+		tinyalu
+		top
+
+	Extracting FSMs for coverage:
+		worklib.single_cycle
+		worklib.three_cycle
+		worklib.tinyalu
+		worklib.tpgen
+		worklib.coverage
+		worklib.scoreboard
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.scoreboard:sv <0x4f942af6>
+			streams:   7, words: 17124
+		worklib.coverage:sv <0x4f730ff9>
+			streams:   5, words:  5262
+		worklib.tpgen:sv <0x76bd9bc9>
+			streams:   3, words:  5458
+		worklib.three_cycle:sv <0x69ec128e>
+			streams:   3, words:  3846
+		worklib.single_cycle:sv <0x2c76a995>
+			streams:   3, words:  2944
+		worklib.tinyalu:sv <0x55959da7>
+			streams:   3, words:  2454
+		worklib.tinyalu_bfm:sv <0x03218405>
+			streams:   4, words:  6195
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables inside structures. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum -sv_struct_with_enum' command in the coverage configuration file.
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                Instances  Unique
+		Modules:                7       7
+		Interfaces:             1       1
+		Verilog packages:       1       1
+		Registers:             43      43
+		Scalar wires:           6       -
+		Vectored wires:         8       -
+		Always blocks:          5       5
+		Initial blocks:         4       4
+		Final blocks:           1       1
+		Cont. assignments:      4       5
+		Assertions:             1       1
+		Covergroup Instances:   0       2
+	Writing initial simulation snapshot: worklib.tinyalu:sv
+TOOL:	xrun	21.03-s009: Exiting on Nov 08, 2023 at 17:54:16 CET  (total: 00:00:00)

@@ -1,5 +1,5 @@
 xrun: 21.03-s009: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
-TOOL:	xrun	21.03-s009: Started on Nov 04, 2023 at 19:10:53 CET
+TOOL:	xrun	21.03-s009: Started on Nov 08, 2023 at 18:06:46 CET
 xrun
 	+compile
 	+sv
@@ -15,24 +15,18 @@ file: lab03/tb/../../common/vdic_dut_2023.svp
 	module worklib.vdic_dut_2023:svp
 		errors: 0, warnings: 0
 file: lab03/tb/DUT_bfm.sv
-	interface worklib.DUT_bfm:sv
+	interface worklib.mult_bfm:sv
 		errors: 0, warnings: 0
 file: lab03/tb/tpgen.sv
 	module worklib.tpgen:sv
 		errors: 0, warnings: 0
 file: lab03/tb/coverage.sv
-file: lab03/tb/scoreboard.sv
-module scoreboard(DUT_bfm bfm);
-     |
-xmvlog: *E,SVNIMP (lab03/tb/scoreboard.sv,1|5): SystemVerilog construct not yet implemented:  nested module.
-file: lab03/tb/top.sv
-module top;
-     |
-xmvlog: *E,SVNIMP (lab03/tb/top.sv,1|5): SystemVerilog construct not yet implemented:  nested module.
-endmodule : top
-               |
-xmvlog: *E,EOFMOD (lab03/tb/top.sv,14|15): EOF (end of file) found while parsing module 'coverage'.
 	module worklib.coverage:sv
-		errors: 3, warnings: 0
-xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
-TOOL:	xrun	21.03-s009: Exiting on Nov 04, 2023 at 19:10:53 CET  (total: 00:00:00)
+		errors: 0, warnings: 0
+file: lab03/tb/scoreboard.sv
+	module worklib.scoreboard:sv
+		errors: 0, warnings: 0
+file: lab03/tb/top.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+TOOL:	xrun	21.03-s009: Exiting on Nov 08, 2023 at 18:06:46 CET  (total: 00:00:00)

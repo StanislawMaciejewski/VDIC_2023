@@ -1,5 +1,5 @@
 module top;
-DUT_bfm bfm();
+mult_bfm bfm();
 tpgen tpgen_i (bfm);
 coverage coverage_i (bfm);
 scoreboard scoreboard_i(bfm);
@@ -10,5 +10,6 @@ vdic_dut_2023 DUT (.clk(bfm.clk), .rst_n(bfm.rst_n),
 	.req(bfm.req), .ack(bfm.ack), 
 	.result(bfm.result), .result_parity(bfm.result_parity), 
 	.result_rdy(bfm.result_rdy), .arg_parity_error(bfm.arg_parity_error));
+
 
 endmodule : top

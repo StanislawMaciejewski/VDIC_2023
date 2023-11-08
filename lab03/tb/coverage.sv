@@ -1,4 +1,4 @@
-module coverage(DUT_bfm bfm);
+module coverage(mult_bfm bfm);
 
 bit signed	  [15:0] arg_a;
 bit			         arg_a_parity;
@@ -63,17 +63,20 @@ mins_or_maxs	c_8000_7FFF;
 
 initial begin : coverage
 	c_8000_7FFF = new();
-	forever begin : sample_cov
-		forever begin : sampling_block
-			@(posedge bfm.clk);
+	forever begin : sampling_block
+		@(posedge bfm.clk);
 			arg_a      		= bfm.arg_a;
         	arg_b      		= bfm.arg_b;
 			arg_a_parity	= bfm.arg_a_parity;
         	arg_b_parity    = bfm.arg_b_parity;
-			
+		
+		//if(bfm.result_rdy || !bfm.rst_n) begin
 			c_8000_7FFF.sample();
-			
-		end
-	end
+		//end
+	end : sampling_block
 end : coverage
+
+endmodule
+
+
 

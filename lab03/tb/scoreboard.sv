@@ -1,4 +1,4 @@
-module scoreboard(DUT_bfm bfm);
+module scoreboard(mult_bfm bfm);
 	
 //------------------------------------------------------------------------------
 // local typdefs
@@ -22,7 +22,7 @@ typedef enum {
 // Local variables
 //------------------------------------------------------------------------------
 	
-test_result_t        test_result = TEST_PASSED; // the result of the current test
+test_result_t        tr = TEST_PASSED; // the result of the current test
 
 //------------------------------------------------------------------------------
 // calculate expected result
@@ -80,6 +80,8 @@ endfunction
 //------------------------------------------------------------------------------
 // data registering and checking
 //------------------------------------------------------------------------------
+bit req_prev;
+
 typedef struct packed {
 	bit signed	  [15:0] arg_a;
 	bit	signed	  [15:0] arg_b;
@@ -88,18 +90,21 @@ typedef struct packed {
 	bit signed	  [31:0] result;
 	bit					 result_parity;
 	bit					 arg_parity_error;
-	
 } data_packet_t;
 
 data_packet_t			sb_data_q	[$];
 
 always @(posedge bfm.clk) begin:scoreboard_fe_blk
-	if(bfm.req == 1 && bfm.req_prev == 0)begin
+	if(bfm.req == 1)begin
 		sb_data_q.push_front(
-			data_packet_t'({bfm.arg_a,bfm.arg_b,bfm.arg_a_parity,bfm.arg_b_parity, get_expected_result(bfm.arg_a, bfm.arg_b, bfm.arg_a_parity, bfm.arg_b_parity), get_expected_parity_32b(get_expected_result(bfm.arg_a, bfm.arg_b, bfm.arg_a_parity, bfm.arg_b_parity)), get_expected_arg_parity_error(bfm.arg_a, bfm.arg_b, bfm.arg_a_parity, bfm.arg_b_parity)})	
-		);
+			data_packet_t'({bfm.arg_a,bfm.arg_b,
+							bfm.arg_a_parity, bfm.arg_b_parity, 
+							get_expected_result(bfm.arg_a, bfm.arg_b, bfm.arg_a_parity, bfm.arg_b_parity),
+							get_expected_parity_32b(get_expected_result(bfm.arg_a, bfm.arg_b, bfm.arg_a_parity, bfm.arg_b_parity)),
+							get_expected_arg_parity_error(bfm.arg_a, bfm.arg_b, bfm.arg_a_parity, bfm.arg_b_parity)})
+			);
+		while(!bfm.ack) @(negedge bfm.clk);
 	end
-	bfm.req_prev = bfm.req;
 end
 			
 
@@ -111,36 +116,36 @@ always @(negedge bfm.clk) begin: scoreboard_be_blk
 		
 		CHK_RESULT: assert(bfm.result === dp.result) begin
 			`ifdef DEBUG
-			//$display("%0t result test passed for arg_a=%0d arg_b=%0d", $time, dp.arg_a, dp.arg_b);
+			$display("%0t result test passed for arg_a=%0d arg_b=%0d", $time, dp.arg_a, dp.arg_b);
 //			display_in();
 //			display_out();
 			`endif
 		end
 		else begin
-			test_result = TEST_FAILED;
+			tr = TEST_FAILED;
 			$error("%0t Test FAILED for arg_a=%0d arg_b=%0d\nExpected result: %d. Received result: %d", 
 				$time, dp.arg_a, dp.arg_b, dp.result, bfm.result);
 		end
 		
 		CHK_RESULT_PARITY: assert(bfm.result_parity === dp.result_parity) begin
 			`ifdef DEBUG
-			//$display("%0t result_parity test passed for arg_a=%0d arg_b=%0d", $time, dp.arg_a, dp.arg_b);
+			$display("%0t result_parity test passed for arg_a=%0d arg_b=%0d", $time, dp.arg_a, dp.arg_b);
 			`endif
 		end
 		else begin
-			test_result = TEST_FAILED;
+			tr = TEST_FAILED;
 			$error("%0t Test FAILED for arg_a=%0d arg_b=%0d\nExpected result parity: %d. Received result parity: %d", 
 				$time, dp.arg_a, dp.arg_b, dp.result_parity, bfm.result_parity);
 		end;
 		
 		CHK_ARG_PARITY_ERROR: assert(bfm.arg_parity_error === dp.arg_parity_error) begin
 			`ifdef DEBUG
-			//$display("%0t arg_parity_error test passed for arg_a=%0d arg_b=%0d", $time, dp.arg_a, dp.arg_b);
+			$display("%0t arg_parity_error test passed for arg_a=%0d arg_b=%0d", $time, dp.arg_a, dp.arg_b);
 //			display_out();
 			`endif
 		end
 		else begin
-			test_result = TEST_FAILED;
+			tr = TEST_FAILED;
 			$error("%0t Test FAILED for arg_a=%0d arg_b=%0d\nExpected arg_parity_error: %d. Received arg_parity_error: %d", 
 				$time, dp.arg_a, dp.arg_b, dp.arg_parity_error, bfm.arg_parity_error);
 		end
