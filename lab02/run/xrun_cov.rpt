@@ -19,5 +19,5 @@ Total runs not merged                                 : 0
 *W,REPDEP: This is a legacy report and no future enhancement is planned for this report. It is recommended that you use the 'report_metrics' command and generate a dynamic report.
 name                                     Overall Average      Overall Covered      Code Average         Code Covered         Fsm Average          Fsm Covered          Functional Average   Functional Covered   
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-top                                      93.22%               89.10% (188/211)     86.45%               87.89% (167/190)     n/a                  n/a                  100.00%              100.00% (21/21)      
+top                                      93.44%               89.57% (189/211)     86.89%               88.42% (168/190)     n/a                  n/a                  100.00%              100.00% (21/21)      
 |--DUT                                   98.63%               98.63% (72/73)       98.63%               98.63% (72/73)       n/a                  n/a                  n/a                  n/a                  

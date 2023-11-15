@@ -1,32 +1,12 @@
 xrun: 21.03-s009: (c) Copyright 1995-2021 Cadence Design Systems, Inc.
-TOOL:	xrun	21.03-s009: Started on Nov 08, 2023 at 18:06:46 CET
+TOOL:	xrun	21.03-s009: Started on Nov 15, 2023 at 15:30:28 CET
 xrun
 	+compile
 	+sv
-	-f /home/student/smaciejewski/VDIC_2023/.dvt/lab03.build
-		-F lab03/tb/tb.f
-			../../common/vdic_dut_2023.svp
-			DUT_bfm.sv
-			tpgen.sv
-			coverage.sv
-			scoreboard.sv
-			top.sv
-file: lab03/tb/../../common/vdic_dut_2023.svp
-	module worklib.vdic_dut_2023:svp
-		errors: 0, warnings: 0
-file: lab03/tb/DUT_bfm.sv
-	interface worklib.mult_bfm:sv
-		errors: 0, warnings: 0
-file: lab03/tb/tpgen.sv
-	module worklib.tpgen:sv
-		errors: 0, warnings: 0
-file: lab03/tb/coverage.sv
-	module worklib.coverage:sv
-		errors: 0, warnings: 0
-file: lab03/tb/scoreboard.sv
-	module worklib.scoreboard:sv
-		errors: 0, warnings: 0
-file: lab03/tb/top.sv
+	-f /home/student/smaciejewski/VDIC_2023/.dvt/lab04part1.build
+		-F lab04part1/tb/tb.f
+			lab04_part1.sv
+file: lab04part1/tb/lab04_part1.sv
 	module worklib.top:sv
 		errors: 0, warnings: 0
-TOOL:	xrun	21.03-s009: Exiting on Nov 08, 2023 at 18:06:46 CET  (total: 00:00:00)
+TOOL:	xrun	21.03-s009: Exiting on Nov 15, 2023 at 15:30:29 CET  (total: 00:00:01)

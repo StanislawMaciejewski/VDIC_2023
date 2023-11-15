@@ -28,6 +28,10 @@ initial begin
 		iarg_b_parity = 1'($random);
 		bfm.send_data(iarg_a, iarg_b, iarg_a_parity, iarg_b_parity, iresult, iresult_parity, iarg_parity_error);
 	end : random_loop
+	
+	bfm.send_data(iarg_a, iarg_b, iarg_a_parity, iarg_b_parity, iresult, iresult_parity, iarg_parity_error);
+	bfm.reset_alu();
+	
 	$finish;
 end // initial begin
 

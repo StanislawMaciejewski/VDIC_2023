@@ -70,9 +70,8 @@ initial begin : coverage
 			arg_a_parity	= bfm.arg_a_parity;
         	arg_b_parity    = bfm.arg_b_parity;
 		
-		//if(bfm.result_rdy || !bfm.rst_n) begin
 			c_8000_7FFF.sample();
-		//end
+		
 	end : sampling_block
 end : coverage
 

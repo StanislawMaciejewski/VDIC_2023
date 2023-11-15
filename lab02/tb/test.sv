@@ -43,10 +43,12 @@ vdic_dut_2023 DUT (.clk, .rst_n, .arg_a, .arg_a_parity, .arg_b, .arg_b_parity, .
 // Coverage block
 //------------------------------------------------------------------------------
 
+	
 // Covergroup checking for min and max arguments of the ALU
 covergroup mins_or_maxs;
 	
 	option.name = "cg_mins_or_maxs";
+	
 	
 	a_leg: coverpoint arg_a {
 		bins min = {16'sh8000};
@@ -107,6 +109,7 @@ initial begin : coverage
 		if(result_rdy || !rst_n) begin
 			c_8000_7FFF.sample();
 			
+			
 			#1step;
 			if($get_coverage() == 100) break;
 			
@@ -140,6 +143,9 @@ end
 initial begin : tester
 	reset_alu();
 	repeat (1000) begin : tester_main_blk
+		rst_n = 1'b1;
+		rst_n = 1'b0;
+		rst_n = 1'b1;
 		@(negedge clk);
 		arg_a = get_data();
 		arg_a_parity = 1'($random);

@@ -1,4 +1,4 @@
-TOOL:	xrun	21.03-s009: Started on Oct 26, 2023 at 08:09:42 CEST
+TOOL:	xrun	21.03-s009: Started on Nov 08, 2023 at 20:55:20 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -35,7 +35,7 @@ xrun
 		worklib.vdic_dut_2023:svp <0x74b97bc2>
 			streams:  25, words: 13928
 		worklib.top:sv <0x122de9ed>
-			streams:  27, words: 52900
+			streams:  27, words: 53686
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
 	Loading native compiled code:     .................... Done
@@ -54,4 +54,4 @@ xrun
 		Covergroup Instances:    0       1
 		Simulation timescale:  1ps
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun	21.03-s009: Exiting on Oct 26, 2023 at 08:09:42 CEST  (total: 00:00:00)
+TOOL:	xrun	21.03-s009: Exiting on Nov 08, 2023 at 20:55:21 CET  (total: 00:00:01)
