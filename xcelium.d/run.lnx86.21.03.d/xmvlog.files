@@ -2,4 +2,7 @@
 // File created by:  xrun
 // Do not modify this file
 //
-/home/student/smaciejewski/VDIC_2023/lab04part1/tb/lab04_part1.sv
+/home/student/smaciejewski/VDIC_2023/lab06/tb/mult_pkg.sv
+/home/student/smaciejewski/VDIC_2023/lab06/tb/DUT_bfm.sv
+/home/student/smaciejewski/VDIC_2023/common/vdic_dut_2023.svp
+/home/student/smaciejewski/VDIC_2023/lab06/tb/top.sv

@@ -1,1 +1,4 @@
-1700058627 /home/student/smaciejewski/VDIC_2023/lab04part1/tb/lab04_part1.sv
+1701274313 /home/student/smaciejewski/VDIC_2023/lab06/tb/mult_pkg.sv
+1697539627 /home/student/smaciejewski/VDIC_2023/common/vdic_dut_2023.svp
+1701276365 /home/student/smaciejewski/VDIC_2023/lab06/tb/DUT_bfm.sv
+1700938428 /home/student/smaciejewski/VDIC_2023/lab06/tb/top.sv
