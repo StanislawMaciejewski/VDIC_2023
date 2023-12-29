@@ -34,10 +34,8 @@ class random_command extends uvm_transaction;
 
     constraint data {
         arg_a dist {16'h8000:=1, [16'h7FFE : 16'h8001]:=1, 16'h7FFF:=1};
-	    //arg_a_parity dist {1'b0:=1, 1'b1:=1};
         arg_b dist {16'h8000:=1, [16'h7FFE : 16'h8001]:=1, 16'h7FFF:=1};
 	}
-	    //arg_b_parity dist {1'b0:=1, 1'b1:=1};}
     
 //------------------------------------------------------------------------------
 // transaction functions: do_copy, clone_me, do_compare, convert2string

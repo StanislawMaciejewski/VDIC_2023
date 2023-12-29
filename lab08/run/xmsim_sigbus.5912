@@ -1,0 +1,2179 @@
+//
+// SIGBUS Diagnostics for Cadence Design Systems R&D
+//
+// This file contains potentially useful information in case of
+// ungraceful termination. Look at the output dumped after this for 
+// potential problems. If you notice any filenames ending with '(deleted)' they were
+// deleted after they had been loaded into program memory. This can cause
+// random crashes and/or unpredictable behaviour. Please prevent any writes to those files
+// while the program is running.
+
+Address of instruction where the signal was raised: 0xf77b2c79
+Values from siginfo_t: si_addr=0xf729f188 si_code=2
+
+// Contents of /proc/meminfo: {
+MemTotal:       16328744 kB
+MemFree:         4023720 kB
+MemAvailable:    9601068 kB
+Buffers:              48 kB
+Cached:          4304844 kB
+SwapCached:         5268 kB
+Active:          7317448 kB
+Inactive:        2393620 kB
+Active(anon):    5176028 kB
+Inactive(anon):   335264 kB
+Active(file):    2141420 kB
+Inactive(file):  2058356 kB
+Unevictable:         328 kB
+Mlocked:               0 kB
+SwapTotal:       8191996 kB
+SwapFree:        8054012 kB
+Dirty:                88 kB
+Writeback:             0 kB
+AnonPages:       5403696 kB
+Mapped:           107600 kB
+Shmem:            105472 kB
+Slab:            1843828 kB
+SReclaimable:    1713692 kB
+SUnreclaim:       130136 kB
+KernelStack:        5056 kB
+PageTables:        24596 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    16356368 kB
+Committed_AS:    7003388 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      375408 kB
+VmallocChunk:   34358943740 kB
+Percpu:             7360 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   2183168 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      170580 kB
+DirectMap2M:     7067648 kB
+DirectMap1G:     9437184 kB
+// }
+
+// Contents of /proc/5912/maps: {
+0000f000-00010000 ---p 00000000 00:00 0 
+08048000-0aaab000 r-xp 00000000 00:2d 80877874                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/bin/xmsim
+0aaac000-0aae7000 r-xp 02a63000 00:2d 80877874                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/bin/xmsim
+0aae7000-0ac20000 rwxp 02a9e000 00:2d 80877874                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/bin/xmsim
+0ac20000-0b6fc000 rwxp 00000000 00:00 0 
+0cc8a000-4eee7000 rwxp 00000000 00:00 0                                  [heap]
+e3f20000-ebf22000 rwxp 00000000 00:00 0 
+f2dcd000-f3358000 r-xp 00000000 00:2d 84679558                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libucis.so
+f3358000-f3359000 ---p 0058b000 00:2d 84679558                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libucis.so
+f3359000-f3394000 rwxp 0058b000 00:2d 84679558                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libucis.so
+f3394000-f37a7000 rwxp 00000000 00:00 0 
+f3aac000-f3fb2000 rwxp 00000000 00:00 0 
+f3fd8000-f3fee000 r-xp 00000000 00:2d 64492502                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libz_sh.so
+f3fee000-f3fef000 ---p 00016000 00:2d 64492502                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libz_sh.so
+f3fef000-f3ff1000 rwxp 00016000 00:2d 64492502                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libz_sh.so
+f3ff1000-f403e000 rwxp 00000000 00:00 0 
+f403e000-f4042000 r-xp 00000000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+f4042000-f4043000 ---p 00004000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+f4043000-f4044000 r-xp 00004000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+f4044000-f4045000 rwxp 00005000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+f4045000-f4088000 rwxp 00000000 00:00 0 
+f4088000-f40a7000 r-xp 00000000 00:2d 84021123                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi2-sst2-nld.so
+f40a7000-f40a8000 r-xp 0001e000 00:2d 84021123                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi2-sst2-nld.so
+f40a8000-f40a9000 rwxp 0001f000 00:2d 84021123                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi2-sst2-nld.so
+f40a9000-f4128000 r-xp 00000000 00:2d 65149128                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdwapi.so
+f4128000-f412a000 r-xp 0007e000 00:2d 65149128                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdwapi.so
+f412a000-f412b000 rwxp 00080000 00:2d 65149128                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdwapi.so
+f412b000-f416e000 rwxp 00000000 00:00 0 
+f416e000-f4183000 r-xp 00000000 fd:00 78166520                           /usr/lib/libz.so.1.2.7
+f4183000-f4184000 r-xp 00014000 fd:00 78166520                           /usr/lib/libz.so.1.2.7
+f4184000-f4185000 rwxp 00015000 fd:00 78166520                           /usr/lib/libz.so.1.2.7
+f4189000-f418c000 rwxp 00000000 00:00 0 
+f418c000-f41a3000 r-xp 00000000 00:2d 84021120                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi-verilog-nld.so
+f41a3000-f41a4000 r-xp 00016000 00:2d 84021120                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi-verilog-nld.so
+f41a4000-f41a5000 rwxp 00017000 00:2d 84021120                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi-verilog-nld.so
+f41a5000-f52f9000 r-xp 00000000 00:2d 65803281                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/rnc/lib/gnu/9.3/librnc.so
+f52f9000-f52fa000 r-xp 01153000 00:2d 65803281                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/rnc/lib/gnu/9.3/librnc.so
+f52fa000-f52fc000 rwxp 01154000 00:2d 65803281                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/rnc/lib/gnu/9.3/librnc.so
+f52fc000-f6b69000 rwxp 00000000 00:00 0 
+f6b69000-f6b6b000 ---p 00000000 00:00 0 
+f6b6b000-f6f67000 rwxp 00000000 00:00 0 
+f6f67000-f6f69000 ---p 00000000 00:00 0 
+f6f69000-f6f6a000 rwxp 00000000 00:00 0 
+f6f6a000-f6f6c000 ---p 00000000 00:00 0 
+f6f6c000-f6fac000 rwxp 00000000 00:00 0 
+f6fac000-f6fae000 ---p 00000000 00:00 0 
+f6fae000-f6fb0000 rwxp 00000000 00:00 0 
+f6fb0000-f6fb2000 ---p 00000000 00:00 0 
+f6fb2000-f6ff2000 rwxp 00000000 00:00 0 
+f6ff2000-f6ff4000 ---p 00000000 00:00 0 
+f6ff4000-f6ff5000 rwxp 00000000 00:00 0 
+f6ff5000-f71a6000 r-xp 00000000 00:2d 64492443                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libStrapNC.so
+f71a6000-f71a7000 r-xp 001b0000 00:2d 64492443                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libStrapNC.so
+f71a7000-f71d1000 rwxp 001b1000 00:2d 64492443                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libStrapNC.so
+f71d1000-f71db000 rwxp 00000000 00:00 0 
+f71db000-f7265000 r-xp 00000000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+f7265000-f7266000 ---p 0008a000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+f7266000-f7267000 r-xp 0008a000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+f7267000-f726f000 rwxp 0008b000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+f726f000-f7270000 rwxp 00000000 00:00 0 
+f7270000-f7287000 r-xp 00000000 fd:00 78166502                           /usr/lib/libnsl-2.17.so
+f7287000-f7288000 r-xp 00016000 fd:00 78166502                           /usr/lib/libnsl-2.17.so
+f7288000-f7289000 rwxp 00017000 fd:00 78166502                           /usr/lib/libnsl-2.17.so
+f7289000-f728b000 rwxp 00000000 00:00 0 
+f728b000-f7295000 r-xp 00000000 fd:00 67434270                           /usr/lib/libnss_nis-2.17.so
+f7295000-f7296000 r-xp 00009000 fd:00 67434270                           /usr/lib/libnss_nis-2.17.so
+f7296000-f7297000 rwxp 0000a000 fd:00 67434270                           /usr/lib/libnss_nis-2.17.so
+f7297000-f7298000 rwxp 00000000 00:00 0 
+f7298000-f729d000 r-xp 00000000 00:2d 91632995                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmdpi.so
+f729d000-f729e000 r-xp 00004000 00:2d 91632995                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmdpi.so
+f729e000-f729f000 rwxp 00005000 00:2d 91632995                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmdpi.so
+f729f000-f72a2000 r-xp 00000000 00:2c 90833283                           /home/student/smaciejewski/VDIC_2023/lab08/run/INCA_libs/worklib/top/sv/.nfs00000000056a01830000027a
+f72a2000-f72a3000 r-xp 00002000 00:2c 90833283                           /home/student/smaciejewski/VDIC_2023/lab08/run/INCA_libs/worklib/top/sv/.nfs00000000056a01830000027a
+f72a3000-f72a4000 rwxp 00003000 00:2c 90833283                           /home/student/smaciejewski/VDIC_2023/lab08/run/INCA_libs/worklib/top/sv/.nfs00000000056a01830000027a
+f72a4000-f72ab000 r-xp 00000000 fd:00 67434278                           /usr/lib/librt-2.17.so
+f72ab000-f72ac000 r-xp 00006000 fd:00 67434278                           /usr/lib/librt-2.17.so
+f72ac000-f72ad000 rwxp 00007000 fd:00 67434278                           /usr/lib/librt-2.17.so
+f72ad000-f72b5000 r-xp 00000000 00:2d 84679559                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libunicovdirmgr.so
+f72b5000-f72b6000 r-xp 00007000 00:2d 84679559                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libunicovdirmgr.so
+f72b6000-f72b7000 rwxp 00008000 00:2d 84679559                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libunicovdirmgr.so
+f72b7000-f72f8000 rwxp 00000000 00:00 0 
+f72f8000-f7358000 r-xp 00000000 00:2d 80878039                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libcbreakpad.so
+f7358000-f7359000 r-xp 0005f000 00:2d 80878039                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libcbreakpad.so
+f7359000-f735b000 rwxp 00060000 00:2d 80878039                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libcbreakpad.so
+f735b000-f7365000 rwxp 00000000 00:00 0 
+f7365000-f7529000 r-xp 00000000 fd:00 78166493                           /usr/lib/libc-2.17.so
+f7529000-f752a000 ---p 001c4000 fd:00 78166493                           /usr/lib/libc-2.17.so
+f752a000-f752c000 r-xp 001c4000 fd:00 78166493                           /usr/lib/libc-2.17.so
+f752c000-f752d000 rwxp 001c6000 fd:00 78166493                           /usr/lib/libc-2.17.so
+f752d000-f7530000 rwxp 00000000 00:00 0 
+f7530000-f754b000 r-xp 00000000 00:2d 64492470                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libgcc_s.so.1
+f754b000-f754c000 r-xp 0001a000 00:2d 64492470                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libgcc_s.so.1
+f754c000-f754d000 rwxp 0001b000 00:2d 64492470                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libgcc_s.so.1
+f754d000-f771a000 r-xp 00000000 00:2d 64492496                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libstdc++.so.6.0.28
+f771a000-f7720000 r-xp 001cc000 00:2d 64492496                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libstdc++.so.6.0.28
+f7720000-f7722000 rwxp 001d2000 00:2d 64492496                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libstdc++.so.6.0.28
+f7722000-f7725000 rwxp 00000000 00:00 0 
+f7725000-f7765000 r-xp 00000000 fd:00 78166500                           /usr/lib/libm-2.17.so
+f7765000-f7766000 r-xp 0003f000 fd:00 78166500                           /usr/lib/libm-2.17.so
+f7766000-f7767000 rwxp 00040000 fd:00 78166500                           /usr/lib/libm-2.17.so
+f7767000-f776a000 r-xp 00000000 fd:00 78166498                           /usr/lib/libdl-2.17.so
+f776a000-f776b000 r-xp 00002000 fd:00 78166498                           /usr/lib/libdl-2.17.so
+f776b000-f776c000 rwxp 00003000 fd:00 78166498                           /usr/lib/libdl-2.17.so
+f776c000-f7783000 r-xp 00000000 fd:00 67434274                           /usr/lib/libpthread-2.17.so
+f7783000-f7784000 r-xp 00016000 fd:00 67434274                           /usr/lib/libpthread-2.17.so
+f7784000-f7785000 rwxp 00017000 fd:00 67434274                           /usr/lib/libpthread-2.17.so
+f7785000-f7787000 rwxp 00000000 00:00 0 
+f7787000-f7792000 r-xp 00000000 fd:00 67434265                           /usr/lib/libnss_files-2.17.so
+f7792000-f7793000 r-xp 0000a000 fd:00 67434265                           /usr/lib/libnss_files-2.17.so
+f7793000-f7794000 rwxp 0000b000 fd:00 67434265                           /usr/lib/libnss_files-2.17.so
+f7794000-f779f000 rwxp 00000000 00:00 0 
+f779f000-f77a5000 r-xp 00000000 00:2d 91632996                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmpli.so
+f77a5000-f77a6000 r-xp 00005000 00:2d 91632996                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmpli.so
+f77a6000-f77a7000 rwxp 00006000 00:2d 91632996                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmpli.so
+f77a7000-f77a8000 rwxp 00000000 00:00 0 
+f77a8000-f77a9000 r-xp 00000000 00:00 0                                  [vdso]
+f77a9000-f77cb000 r-xp 00000000 fd:00 78166486                           /usr/lib/ld-2.17.so
+f77cb000-f77cc000 r-xp 00021000 fd:00 78166486                           /usr/lib/ld-2.17.so
+f77cc000-f77cd000 rwxp 00022000 fd:00 78166486                           /usr/lib/ld-2.17.so
+ffe09000-ffe7b000 rwxp 00000000 00:00 0                                  [stack]
+// }
+
+// Contents of /proc/5912/smaps: {
+0000f000-00010000 ---p 00000000 00:00 0 
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me lo sd 
+08048000-0aaab000 r-xp 00000000 00:2d 80877874                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/bin/xmsim
+Size:              43404 kB
+Rss:                 436 kB
+Pss:                 168 kB
+Shared_Clean:        436 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:          436 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me dw sd 
+0aaac000-0aae7000 r-xp 02a63000 00:2d 80877874                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/bin/xmsim
+Size:                236 kB
+Rss:                  24 kB
+Pss:                  19 kB
+Shared_Clean:          8 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        16 kB
+Referenced:           24 kB
+Anonymous:            16 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me dw ac sd 
+0aae7000-0ac20000 rwxp 02a9e000 00:2d 80877874                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/bin/xmsim
+Size:               1252 kB
+Rss:                 296 kB
+Pss:                 296 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:       296 kB
+Referenced:          296 kB
+Anonymous:           296 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me dw ac sd 
+0ac20000-0b6fc000 rwxp 00000000 00:00 0 
+Size:              11120 kB
+Rss:                5276 kB
+Pss:                5276 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:      5276 kB
+Referenced:         5272 kB
+Anonymous:          5276 kB
+AnonHugePages:      4096 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+0cc8a000-4eee7000 rwxp 00000000 00:00 0                                  [heap]
+Size:            1083764 kB
+Rss:             1083308 kB
+Pss:             1083308 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:   1083308 kB
+Referenced:      1082188 kB
+Anonymous:       1083308 kB
+AnonHugePages:      6144 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+e3f20000-ebf22000 rwxp 00000000 00:00 0 
+Size:             131080 kB
+Rss:              131080 kB
+Pss:              131080 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:    131080 kB
+Referenced:       131032 kB
+Anonymous:        131080 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f2dcd000-f3358000 r-xp 00000000 00:2d 84679558                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libucis.so
+Size:               5676 kB
+Rss:                   8 kB
+Pss:                   4 kB
+Shared_Clean:          8 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            8 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f3358000-f3359000 ---p 0058b000 00:2d 84679558                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libucis.so
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me sd 
+f3359000-f3394000 rwxp 0058b000 00:2d 84679558                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libucis.so
+Size:                236 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f3394000-f37a7000 rwxp 00000000 00:00 0 
+Size:               4172 kB
+Rss:                4112 kB
+Pss:                4112 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:      4112 kB
+Referenced:         4096 kB
+Anonymous:          4112 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f3aac000-f3fb2000 rwxp 00000000 00:00 0 
+Size:               5144 kB
+Rss:                5144 kB
+Pss:                5144 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:      5144 kB
+Referenced:         5128 kB
+Anonymous:          5144 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f3fd8000-f3fee000 r-xp 00000000 00:2d 64492502                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libz_sh.so
+Size:                 88 kB
+Rss:                   8 kB
+Pss:                   4 kB
+Shared_Clean:          8 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            8 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f3fee000-f3fef000 ---p 00016000 00:2d 64492502                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libz_sh.so
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me sd 
+f3fef000-f3ff1000 rwxp 00016000 00:2d 64492502                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libz_sh.so
+Size:                  8 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f3ff1000-f403e000 rwxp 00000000 00:00 0 
+Size:                308 kB
+Rss:                 308 kB
+Pss:                 308 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:       308 kB
+Referenced:          308 kB
+Anonymous:           308 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f403e000-f4042000 r-xp 00000000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+Size:                 16 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f4042000-f4043000 ---p 00004000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me sd 
+f4043000-f4044000 r-xp 00004000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f4044000-f4045000 rwxp 00005000 00:2d 80878062                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libxdt.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f4045000-f4088000 rwxp 00000000 00:00 0 
+Size:                268 kB
+Rss:                 264 kB
+Pss:                 264 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:       264 kB
+Referenced:          264 kB
+Anonymous:           264 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f4088000-f40a7000 r-xp 00000000 00:2d 84021123                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi2-sst2-nld.so
+Size:                124 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f40a7000-f40a8000 r-xp 0001e000 00:2d 84021123                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi2-sst2-nld.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f40a8000-f40a9000 rwxp 0001f000 00:2d 84021123                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi2-sst2-nld.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f40a9000-f4128000 r-xp 00000000 00:2d 65149128                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdwapi.so
+Size:                508 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f4128000-f412a000 r-xp 0007e000 00:2d 65149128                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdwapi.so
+Size:                  8 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f412a000-f412b000 rwxp 00080000 00:2d 65149128                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdwapi.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f412b000-f416e000 rwxp 00000000 00:00 0 
+Size:                268 kB
+Rss:                 268 kB
+Pss:                 268 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:       268 kB
+Referenced:          268 kB
+Anonymous:           268 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f416e000-f4183000 r-xp 00000000 fd:00 78166520                           /usr/lib/libz.so.1.2.7
+Size:                 84 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f4183000-f4184000 r-xp 00014000 fd:00 78166520                           /usr/lib/libz.so.1.2.7
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f4184000-f4185000 rwxp 00015000 fd:00 78166520                           /usr/lib/libz.so.1.2.7
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f4189000-f418c000 rwxp 00000000 00:00 0 
+Size:                 12 kB
+Rss:                  12 kB
+Pss:                  12 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        12 kB
+Referenced:           12 kB
+Anonymous:            12 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f418c000-f41a3000 r-xp 00000000 00:2d 84021120                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi-verilog-nld.so
+Size:                 92 kB
+Rss:                  20 kB
+Pss:                   7 kB
+Shared_Clean:         20 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           20 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f41a3000-f41a4000 r-xp 00016000 00:2d 84021120                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi-verilog-nld.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f41a4000-f41a5000 rwxp 00017000 00:2d 84021120                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/transrecord/lib/libsdi-verilog-nld.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f41a5000-f52f9000 r-xp 00000000 00:2d 65803281                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/rnc/lib/gnu/9.3/librnc.so
+Size:              17744 kB
+Rss:                8560 kB
+Pss:                8560 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:      8560 kB
+Referenced:         8556 kB
+Anonymous:          8560 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f52f9000-f52fa000 r-xp 01153000 00:2d 65803281                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/rnc/lib/gnu/9.3/librnc.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f52fa000-f52fc000 rwxp 01154000 00:2d 65803281                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/rnc/lib/gnu/9.3/librnc.so
+Size:                  8 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f52fc000-f6b69000 rwxp 00000000 00:00 0 
+Size:              25012 kB
+Rss:               25012 kB
+Pss:               25012 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:     25012 kB
+Referenced:        24992 kB
+Anonymous:         25012 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f6b69000-f6b6b000 ---p 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me nr sd 
+f6b6b000-f6f67000 rwxp 00000000 00:00 0 
+Size:               4080 kB
+Rss:                  60 kB
+Pss:                  60 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        60 kB
+Referenced:           60 kB
+Anonymous:            60 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me nr sd 
+f6f67000-f6f69000 ---p 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me nr sd 
+f6f69000-f6f6a000 rwxp 00000000 00:00 0 
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f6f6a000-f6f6c000 ---p 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me ac sd 
+f6f6c000-f6fac000 rwxp 00000000 00:00 0 
+Size:                256 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f6fac000-f6fae000 ---p 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me ac sd 
+f6fae000-f6fb0000 rwxp 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f6fb0000-f6fb2000 ---p 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me ac sd 
+f6fb2000-f6ff2000 rwxp 00000000 00:00 0 
+Size:                256 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f6ff2000-f6ff4000 ---p 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me ac sd 
+f6ff4000-f6ff5000 rwxp 00000000 00:00 0 
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f6ff5000-f71a6000 r-xp 00000000 00:2d 64492443                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libStrapNC.so
+Size:               1732 kB
+Rss:                   4 kB
+Pss:                   1 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f71a6000-f71a7000 r-xp 001b0000 00:2d 64492443                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libStrapNC.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f71a7000-f71d1000 rwxp 001b1000 00:2d 64492443                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libStrapNC.so
+Size:                168 kB
+Rss:                  76 kB
+Pss:                  76 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        76 kB
+Referenced:           76 kB
+Anonymous:            76 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f71d1000-f71db000 rwxp 00000000 00:00 0 
+Size:                 40 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f71db000-f7265000 r-xp 00000000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+Size:                552 kB
+Rss:                   4 kB
+Pss:                   1 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7265000-f7266000 ---p 0008a000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me sd 
+f7266000-f7267000 r-xp 0008a000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7267000-f726f000 rwxp 0008b000 00:2d 65149126                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/simvision/lib/libdcapi.so
+Size:                 32 kB
+Rss:                  28 kB
+Pss:                  28 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        28 kB
+Referenced:           28 kB
+Anonymous:            28 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f726f000-f7270000 rwxp 00000000 00:00 0 
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7270000-f7287000 r-xp 00000000 fd:00 78166502                           /usr/lib/libnsl-2.17.so
+Size:                 92 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7287000-f7288000 r-xp 00016000 fd:00 78166502                           /usr/lib/libnsl-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7288000-f7289000 rwxp 00017000 fd:00 78166502                           /usr/lib/libnsl-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7289000-f728b000 rwxp 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f728b000-f7295000 r-xp 00000000 fd:00 67434270                           /usr/lib/libnss_nis-2.17.so
+Size:                 40 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7295000-f7296000 r-xp 00009000 fd:00 67434270                           /usr/lib/libnss_nis-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7296000-f7297000 rwxp 0000a000 fd:00 67434270                           /usr/lib/libnss_nis-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7297000-f7298000 rwxp 00000000 00:00 0 
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7298000-f729d000 r-xp 00000000 00:2d 91632995                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmdpi.so
+Size:                 20 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f729d000-f729e000 r-xp 00004000 00:2d 91632995                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmdpi.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f729e000-f729f000 rwxp 00005000 00:2d 91632995                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmdpi.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f729f000-f72a2000 r-xp 00000000 00:2c 90833283                           /home/student/smaciejewski/VDIC_2023/lab08/run/INCA_libs/worklib/top/sv/.nfs00000000056a01830000027a
+Size:                 12 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f72a2000-f72a3000 r-xp 00002000 00:2c 90833283                           /home/student/smaciejewski/VDIC_2023/lab08/run/INCA_libs/worklib/top/sv/.nfs00000000056a01830000027a
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f72a3000-f72a4000 rwxp 00003000 00:2c 90833283                           /home/student/smaciejewski/VDIC_2023/lab08/run/INCA_libs/worklib/top/sv/.nfs00000000056a01830000027a
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f72a4000-f72ab000 r-xp 00000000 fd:00 67434278                           /usr/lib/librt-2.17.so
+Size:                 28 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f72ab000-f72ac000 r-xp 00006000 fd:00 67434278                           /usr/lib/librt-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f72ac000-f72ad000 rwxp 00007000 fd:00 67434278                           /usr/lib/librt-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f72ad000-f72b5000 r-xp 00000000 00:2d 84679559                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libunicovdirmgr.so
+Size:                 32 kB
+Rss:                  24 kB
+Pss:                   9 kB
+Shared_Clean:         24 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           24 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f72b5000-f72b6000 r-xp 00007000 00:2d 84679559                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libunicovdirmgr.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f72b6000-f72b7000 rwxp 00008000 00:2d 84679559                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/ucd/lib/libunicovdirmgr.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f72b7000-f72f8000 rwxp 00000000 00:00 0 
+Size:                260 kB
+Rss:                 260 kB
+Pss:                 260 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:       260 kB
+Referenced:          260 kB
+Anonymous:           260 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f72f8000-f7358000 r-xp 00000000 00:2d 80878039                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libcbreakpad.so
+Size:                384 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7358000-f7359000 r-xp 0005f000 00:2d 80878039                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libcbreakpad.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7359000-f735b000 rwxp 00060000 00:2d 80878039                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/inca/lib/libcbreakpad.so
+Size:                  8 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f735b000-f7365000 rwxp 00000000 00:00 0 
+Size:                 40 kB
+Rss:                  32 kB
+Pss:                  32 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        32 kB
+Referenced:           32 kB
+Anonymous:            32 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7365000-f7529000 r-xp 00000000 fd:00 78166493                           /usr/lib/libc-2.17.so
+Size:               1808 kB
+Rss:                 412 kB
+Pss:                 150 kB
+Shared_Clean:        412 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:          412 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7529000-f752a000 ---p 001c4000 fd:00 78166493                           /usr/lib/libc-2.17.so
+Size:                  4 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: mr mp me sd 
+f752a000-f752c000 r-xp 001c4000 fd:00 78166493                           /usr/lib/libc-2.17.so
+Size:                  8 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f752c000-f752d000 rwxp 001c6000 fd:00 78166493                           /usr/lib/libc-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f752d000-f7530000 rwxp 00000000 00:00 0 
+Size:                 12 kB
+Rss:                  12 kB
+Pss:                  12 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        12 kB
+Referenced:           12 kB
+Anonymous:            12 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7530000-f754b000 r-xp 00000000 00:2d 64492470                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libgcc_s.so.1
+Size:                108 kB
+Rss:                   8 kB
+Pss:                   3 kB
+Shared_Clean:          8 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            8 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f754b000-f754c000 r-xp 0001a000 00:2d 64492470                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libgcc_s.so.1
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f754c000-f754d000 rwxp 0001b000 00:2d 64492470                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libgcc_s.so.1
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f754d000-f771a000 r-xp 00000000 00:2d 64492496                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libstdc++.so.6.0.28
+Size:               1844 kB
+Rss:                  72 kB
+Pss:                  27 kB
+Shared_Clean:         72 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           72 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f771a000-f7720000 r-xp 001cc000 00:2d 64492496                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libstdc++.so.6.0.28
+Size:                 24 kB
+Rss:                  24 kB
+Pss:                  24 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        24 kB
+Referenced:           24 kB
+Anonymous:            24 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7720000-f7722000 rwxp 001d2000 00:2d 64492496                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/lib/libstdc++.so.6.0.28
+Size:                  8 kB
+Rss:                   8 kB
+Pss:                   8 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         8 kB
+Referenced:            8 kB
+Anonymous:             8 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7722000-f7725000 rwxp 00000000 00:00 0 
+Size:                 12 kB
+Rss:                  12 kB
+Pss:                  12 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        12 kB
+Referenced:           12 kB
+Anonymous:            12 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7725000-f7765000 r-xp 00000000 fd:00 78166500                           /usr/lib/libm-2.17.so
+Size:                256 kB
+Rss:                  12 kB
+Pss:                   5 kB
+Shared_Clean:         12 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           12 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7765000-f7766000 r-xp 0003f000 fd:00 78166500                           /usr/lib/libm-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7766000-f7767000 rwxp 00040000 fd:00 78166500                           /usr/lib/libm-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7767000-f776a000 r-xp 00000000 fd:00 78166498                           /usr/lib/libdl-2.17.so
+Size:                 12 kB
+Rss:                   8 kB
+Pss:                   3 kB
+Shared_Clean:          8 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            8 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f776a000-f776b000 r-xp 00002000 fd:00 78166498                           /usr/lib/libdl-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f776b000-f776c000 rwxp 00003000 fd:00 78166498                           /usr/lib/libdl-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f776c000-f7783000 r-xp 00000000 fd:00 67434274                           /usr/lib/libpthread-2.17.so
+Size:                 92 kB
+Rss:                  32 kB
+Pss:                  13 kB
+Shared_Clean:         32 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           32 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7783000-f7784000 r-xp 00016000 fd:00 67434274                           /usr/lib/libpthread-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7784000-f7785000 rwxp 00017000 fd:00 67434274                           /usr/lib/libpthread-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7785000-f7787000 rwxp 00000000 00:00 0 
+Size:                  8 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7787000-f7792000 r-xp 00000000 fd:00 67434265                           /usr/lib/libnss_files-2.17.so
+Size:                 44 kB
+Rss:                   4 kB
+Pss:                   2 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f7792000-f7793000 r-xp 0000a000 fd:00 67434265                           /usr/lib/libnss_files-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f7793000-f7794000 rwxp 0000b000 fd:00 67434265                           /usr/lib/libnss_files-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f7794000-f779f000 rwxp 00000000 00:00 0 
+Size:                 44 kB
+Rss:                  12 kB
+Pss:                  12 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:        12 kB
+Referenced:           12 kB
+Anonymous:            12 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f779f000-f77a5000 r-xp 00000000 00:2d 91632996                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmpli.so
+Size:                 24 kB
+Rss:                   0 kB
+Pss:                   0 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            0 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me sd 
+f77a5000-f77a6000 r-xp 00005000 00:2d 91632996                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmpli.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me ac sd 
+f77a6000-f77a7000 rwxp 00006000 00:2d 91632996                           /eda/cadence/2021-22/RHELx86/XCELIUM_21.03.009/tools.lnx86/methodology/UVM/CDNS-1.2/additions/sv/lib/libuvmpli.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f77a7000-f77a8000 rwxp 00000000 00:00 0 
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me ac sd 
+f77a8000-f77a9000 r-xp 00000000 00:00 0                                  [vdso]
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   1 kB
+Shared_Clean:          4 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:            4 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me de sd 
+f77a9000-f77cb000 r-xp 00000000 fd:00 78166486                           /usr/lib/ld-2.17.so
+Size:                136 kB
+Rss:                  88 kB
+Pss:                  37 kB
+Shared_Clean:         88 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         0 kB
+Referenced:           88 kB
+Anonymous:             0 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me dw sd 
+f77cb000-f77cc000 r-xp 00021000 fd:00 78166486                           /usr/lib/ld-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd ex mr mp me dw ac sd 
+f77cc000-f77cd000 rwxp 00022000 fd:00 78166486                           /usr/lib/ld-2.17.so
+Size:                  4 kB
+Rss:                   4 kB
+Pss:                   4 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:         4 kB
+Referenced:            4 kB
+Anonymous:             4 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me dw ac sd 
+ffe09000-ffe7b000 rwxp 00000000 00:00 0                                  [stack]
+Size:                456 kB
+Rss:                 340 kB
+Pss:                 340 kB
+Shared_Clean:          0 kB
+Shared_Dirty:          0 kB
+Private_Clean:         0 kB
+Private_Dirty:       340 kB
+Referenced:          340 kB
+Anonymous:           340 kB
+AnonHugePages:         0 kB
+Swap:                  0 kB
+KernelPageSize:        4 kB
+MMUPageSize:           4 kB
+Locked:                0 kB
+VmFlags: rd wr ex mr mp me gd ac 
+// }
+
+// Contents of /proc/5912/limits: {
+Limit                     Soft Limit           Hard Limit           Units     
+Max cpu time              unlimited            unlimited            seconds   
+Max file size             unlimited            unlimited            bytes     
+Max data size             unlimited            unlimited            bytes     
+Max stack size            8388608              unlimited            bytes     
+Max core file size        0                    unlimited            bytes     
+Max resident set          unlimited            unlimited            bytes     
+Max processes             4096                 63171                processes 
+Max open files            1024                 4096                 files     
+Max locked memory         65536                65536                bytes     
+Max address space         unlimited            unlimited            bytes     
+Max file locks            unlimited            unlimited            locks     
+Max pending signals       63171                63171                signals   
+Max msgqueue size         819200               819200               bytes     
+Max nice priority         0                    0                    
+Max realtime priority     0                    0                    
+Max realtime timeout      unlimited            unlimited            us        
+// }
+
+// Contents of /proc/5912/status: {
+Name:	xmsim
+Umask:	0077
+State:	R (running)
+Tgid:	5912
+Ngid:	0
+Pid:	5912
+PPid:	1
+TracerPid:	0
+Uid:	4084	4084	4084	4084
+Gid:	4004	4004	4004	4004
+FDSize:	256
+Groups:	2000 2200 2201 4004 
+VmPeak:	 1343832 kB
+VmSize:	 1343832 kB
+VmLck:	       4 kB
+VmPin:	       0 kB
+VmHWM:	 1282036 kB
+VmRSS:	 1265944 kB
+RssAnon:	 1264768 kB
+RssFile:	    1176 kB
+RssShmem:	       0 kB
+VmData:	 1266248 kB
+VmStk:	     456 kB
+VmExe:	   29052 kB
+VmLib:	   46260 kB
+VmPTE:	    2616 kB
+VmSwap:	       0 kB
+Threads:	1
+SigQ:	4/63171
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000001
+SigBlk:	0000000000004201
+SigIgn:	0000000000001000
+SigCgt:	0000000191886eef
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000001fffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Speculation_Store_Bypass:	thread vulnerable
+Cpus_allowed:	ff
+Cpus_allowed_list:	0-7
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	515
+nonvoluntary_ctxt_switches:	445
+// }

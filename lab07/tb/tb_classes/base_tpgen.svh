@@ -33,7 +33,7 @@ class base_tpgen extends uvm_component;
 		command_port.put(command);
 		
 		command    = random_command::type_id::create("command");
-		repeat (50) begin
+		repeat (5000) begin
             assert(command.randomize());
             command_port.put(command);
 		end
